@@ -23,6 +23,7 @@ export class Examples extends React.Component<ExamplesProps, ExamplesState> {
           {this.props.items.map((item, i) => (
             <Button
               key={i}
+              primary={i === this.state.currentExample}
               className="level-item"
               // tslint:disable-next-line:jsx-no-lambda
               onClick={() => this.setState({ currentExample: i })}

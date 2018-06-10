@@ -57,9 +57,22 @@ export const Tile: SFC<TileProps> = props => (
 );
 
 export interface ButtonProps {
-    onClick?: React.MouseEventHandler;
-    className?: string
+  onClick?: React.MouseEventHandler;
+  className?: string;
+  primary?: boolean;
 }
 
-export const Button: SFC<ButtonProps> = ({ children, onClick, className }) =>
-  React.createElement("button", { className: `button ${className}`, onClick }, children);
+export const Button: SFC<ButtonProps> = ({
+  children,
+  onClick,
+  className,
+  primary
+}) =>
+  React.createElement(
+    "button",
+    {
+      className: classNames(className, "button", { "is-primary": primary }),
+      onClick
+    },
+    children
+  );

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Section, Container, Header } from "./Components";
 import { Examples } from "./ExamplesNavigator";
+import { UsingLinks, UsingActions } from "./examples/ActionableItemsExample";
 
 class App extends React.Component {
   public render() {
@@ -12,21 +13,14 @@ class App extends React.Component {
           </Header>
           <Examples
             items={[
-              { description: "Hello", component: Hello },
-              { description: "World", component: World }
+              { description: "Items as Links", component: UsingLinks },
+              { description: "Items as Actions", component: UsingActions }
             ]}
           />
         </Container>
       </Section>
     );
   }
-}
-
-function Hello() {
-  return <p>Hello</p>;
-}
-function World() {
-  return <p>World</p>;
 }
 
 export default App;
