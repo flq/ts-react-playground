@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Container, Button } from "../Components";
 
-type ItemType = "action" | "link";
+type ActionableItemType = "action" | "link";
 
 export interface ActionItem {
   label: string;
@@ -13,15 +13,15 @@ export interface LinkItem {
   link: string;
 }
 
-type ActionableItem<T extends ItemType> = T extends "action"
+type ActionableItem<T extends ActionableItemType> = T extends "action"
   ? ActionItem
   : T extends "link" ? LinkItem : never;
 
-export interface ActionableItemComponentProps<T extends ItemType> {
+export interface ActionableItemComponentProps<T extends ActionableItemType> {
   items: Array<ActionableItem<T>>;
 }
 
-class ActionableItemComponent<T extends ItemType> extends React.Component<
+class ActionableItemComponent<T extends ActionableItemType> extends React.Component<
   ActionableItemComponentProps<T>
 > {
   render() {

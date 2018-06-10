@@ -1,7 +1,6 @@
 import * as React from "react";
 import { ActionItemsComponent, LinkItemsComponent } from "./ActionableItems";
 
-
 export const UsingActions : React.SFC = () => (
     <ActionItemsComponent items={[{action: () => alert("Hallelujah"), label: "alerted" }]} />
 );
