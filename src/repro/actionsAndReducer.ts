@@ -30,6 +30,11 @@ export function createFetchStore<P extends string, R>(partitionKey: P, initialRe
     }
     switch (action.type) {
       case getType(fetchActionCreators.fetchFulfilled):
+        /*
+          Property 'payload' does not exist on type 'ActionType<(cause: Error) => P extends void ? { type: "FETCH_REJECTED"; payload: Error; } : { typ...'.
+          Property 'payload' does not exist on type 'ActionType<(payload: R) => PayloadMetaAction<"FETCH_FULFILLED", R, P>>'.
+          In real life we have made (action as any).payload - because for all intents and purposes, it is there!
+        */
         return action.payload;
       default:
         return state;
